@@ -1,0 +1,219 @@
+/* Modern Styles with Gradients & Animations */
+:root {
+    --primary-color: #2a2a72;
+    --secondary-color: #009ffd;
+    --accent-color: #ff3c00;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.container {
+    display: flex;
+    max-width: 1000px;
+    margin: 30px auto;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Left Panel Styling */
+.left-panel {
+    width: 35%;
+    background: linear-gradient(160deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.left-panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+    z-index: -1;
+}
+
+.left-panel h2 {
+    font-weight: 600;
+    margin: 25px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.left-panel h2 i {
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
+.left-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.left-panel ul li {
+    padding: 12px 0;
+    position: relative;
+    animation: slideIn 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.left-panel ul li::before {
+    content: '▹';
+    position: absolute;
+    left: -20px;
+    color: var(--accent-color);
+}
+
+/* Right Panel Styling */
+.right-panel {
+    width: 65%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.right-panel h1 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1;
+}
+
+.right-panel h2 {
+    color: var(--primary-color);
+    margin: 25px 0 15px;
+    padding-left: 10px;
+    border-left: 4px solid var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.right-panel h2:hover {
+    transform: translateX(10px);
+}
+
+.right-panel p {
+    margin: 15px 0;
+    line-height: 1.6;
+    color: #444;
+}
+
+.right-panel a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    position: relative;
+}
+
+.right-panel a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.right-panel a:hover::after {
+    width: 100%;
+}
+
+/* Icon Styling */
+.fas,
+.fab {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+/* Skill Animation */
+.skill-bar {
+    background: #eee;
+    border-radius: 20px;
+    height: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+/* Experience & Project Cards */
+.experience-card,
+.project-card {
+    background: rgba(245, 247, 250, 0.5);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.experience-card:hover,
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .left-panel,
+    .right-panel {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .right-panel h1 {
+        font-size: 2em;
+    }
+}
+
+/* Animation Delay for List Items */
+.left-panel ul li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.left-panel ul li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.left-panel ul li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.left-panel ul li:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.left-panel ul li:nth-child(5) {
+    animation-delay: 0.5s;
+}
